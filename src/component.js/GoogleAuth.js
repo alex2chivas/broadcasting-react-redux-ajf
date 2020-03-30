@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getAllByTestId } from '@testing-library/react';
 
 class GoogleAuth extends Component {
 	state = { isSignedIn: null };
@@ -16,6 +15,9 @@ class GoogleAuth extends Component {
 					this.auth = window.gapi.auth2.getAuthInstance();
 					this.setState({ isSignedIn: this.auth.isSignedIn.get() });
 					this.auth.isSignedIn.listen(this.onAuthChange);
+				})
+				.catch(error => {
+					console.log(error, 'Error fetching gapi');
 				});
 		});
 	}
@@ -26,15 +28,33 @@ class GoogleAuth extends Component {
 		});
 	};
 
+	onSignIn = () => {
+		this.auth.signIn();
+	};
+
+	onSignOut = () => {
+		this.auth.signOut();
+	};
+
 	renderAuthButton () {
 		if (this.state.isSignedIn === null) {
-			return <div>I don't know if I am signed In</div>;
+			return <div className='ui active centered inline loader' />;
 		}
 		else if (this.state.isSignedIn) {
-			return <div>I am currently signed In</div>;
+			return (
+				<button onClick={this.onSignOut} className='ui red google button'>
+					<i className='google icon' />
+					Sign Out
+				</button>
+			);
 		}
 		else {
-			return <div>I am not signed In</div>;
+			return (
+				<button onClick={this.onSignIn} className='ui red google button'>
+					<i className='google icon' />
+					Sign In with Google
+				</button>
+			);
 		}
 	}
 
