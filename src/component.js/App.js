@@ -14,6 +14,7 @@ const App = () => {
 			{/*Notes - BrowersRouter, HashRouter, MemoryRouter*/ null}
 			<BrowserRouter>
 				<div>
+					{/* {Routes} */}
 					<Header />
 					<Route path='/' exact component={StreamList} />
 					<Route path='/streams/create' exact component={StreamCreate} />
