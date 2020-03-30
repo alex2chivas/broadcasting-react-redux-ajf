@@ -11,10 +11,10 @@ import StreamShow from './streams/StreamShow';
 const App = () => {
 	return (
 		<div className='ui container'>
-			{/*Notes - BrowersRouter, HashRouter, MemoryRouter*/ null}
+			{/*Notes - BrowersRouter, HashRouter, MemoryRouter*/}
 			<BrowserRouter>
 				<div>
-					{/* {Routes} */}
+					{/* {google oauth scope list to get proper URL from google for flow} */}
 					<Header />
 					<Route path='/' exact component={StreamList} />
 					<Route path='/streams/create' exact component={StreamCreate} />
