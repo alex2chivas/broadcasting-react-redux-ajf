@@ -17,7 +17,7 @@ const App = () => {
 					{/* {google oauth scope list to get proper URL from google for flow} */}
 					<Header />
 					<Route path='/' exact component={StreamList} />
-					<Route path='/streams/create' exact component={StreamCreate} />
+					<Route path='/streams/new' exact component={StreamCreate} />
 					<Route path='/streams/edit' exact component={StreamEdit} />
 					<Route path='/streams/delete' exact component={StreamDelete} />
 					<Route path='/streams/show' exact component={StreamShow} />
