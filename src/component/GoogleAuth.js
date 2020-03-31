@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { signIn, signOut } from '../component.js/actions';
+import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends Component {
 	componentDidMount() {
 		window.gapi.load('client:auth2', () => {
 			window.gapi.client
 				.init({
-					clientId : '72382736363-t4ap5duop7rist08chg5tr6j98bnff4j.apps.googleusercontent.com',
-					scope    : 'email'
+					clientId: '72382736363-t4ap5duop7rist08chg5tr6j98bnff4j.apps.googleusercontent.com',
+					scope: 'email'
 					// Note - https://developers.google.com/identity/sign-in/web/reference
 				})
 				.then(() => {
