@@ -1,1 +1,2 @@
+Helps for debbug sessions with Redux Dev tools
 localhost:3000?debug_session=<some_string>
