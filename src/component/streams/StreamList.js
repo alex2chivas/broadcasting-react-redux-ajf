@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fecthStreams } from '../../actions';
 import { Link } from 'react-router-dom';
-import StreamCreate from './StreamCreate';
 
 class StreamList extends Component {
 	componentDidMount() {

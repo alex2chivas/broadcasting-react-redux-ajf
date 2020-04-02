@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import Header from './Header';
 import StreamCreate from './streams/StreamCreate';
@@ -7,12 +7,13 @@ import StreamDelete from './streams/StreamDelete';
 import StreamEdit from './streams/StreamEdit';
 import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
+import history from '../history';
 
 const App = () => {
 	return (
 		<div className='ui container'>
 			{/*Notes - BrowersRouter, HashRouter, MemoryRouter*/}
-			<BrowserRouter>
+			<Router history={history}>
 				<div>
 					{/* {google oauth scope list to get proper URL from google for flow} */}
 					<Header />
@@ -22,7 +23,7 @@ const App = () => {
 					<Route path='/streams/delete' exact component={StreamDelete} />
 					<Route path='/streams/show' exact component={StreamShow} />
 				</div>
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };
