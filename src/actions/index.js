@@ -54,7 +54,8 @@ export const fetchStream = id => async dispatch => {
 };
 
 export const editStream = (id, formValues) => async dispatch => {
-	const response = await streams.put(`/streams/${id}`, formValues);
+	// Note Patch is better if you are not trying to remove certain properties
+	const response = await streams.patch(`/streams/${id}`, formValues);
 
 	dispatch({
 		type: EDIT_STREAM,
@@ -62,7 +63,6 @@ export const editStream = (id, formValues) => async dispatch => {
 	});
 
 	history.push('/');
-	alert('Changes has been saved');
 };
 
 export const deleteStream = id => async dispatch => {
